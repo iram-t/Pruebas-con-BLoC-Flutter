@@ -29,3 +29,4 @@ class MyApp extends StatelessWidget {
 }
 
 //https://brickhub.dev/bricks/feature_brick/0.6.2
+//mason make feature_brick --feature_name exampleBloc --state_management bloc

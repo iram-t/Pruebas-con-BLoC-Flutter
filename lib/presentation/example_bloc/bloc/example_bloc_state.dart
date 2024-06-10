@@ -4,31 +4,26 @@ part of 'example_bloc_bloc.dart';
 /// ExampleBlocState description
 /// {@endtemplate}
 class ExampleBlocState extends Equatable {
-  /// {@macro example_bloc_state}
-  const ExampleBlocState({
-    this.customProperty = 'Default Value',
-  });
-
-  /// A description for customProperty
-  final String customProperty;
-
   @override
-  List<Object> get props => [customProperty];
+  List<Object?> get props => [];
 
-  /// Creates a copy of the current ExampleBlocState with property changes
-  ExampleBlocState copyWith({
-    String? customProperty,
-  }) {
-    return ExampleBlocState(
-      customProperty: customProperty ?? this.customProperty,
-    );
-  }
 }
 
-/// {@template example_bloc_initial}
-/// The initial state of ExampleBlocState
-/// {@endtemplate}
-class ExampleBlocInitial extends ExampleBlocState {
-  /// {@macro example_bloc_initial}
-  const ExampleBlocInitial() : super();
+class ExampleBlocInitial extends ExampleBlocState {}
+
+class ExampleBlocLoading extends ExampleBlocState {}
+class ExampleBlocSuccess extends ExampleBlocState {
+  final Pokemon pokemon;
+  ExampleBlocSuccess(this.pokemon);
+
+  @override
+  List<Object?> get props => [pokemon];
+}
+class ExampleBlocError extends ExampleBlocState {
+  final String message;
+  ExampleBlocError(this.message);
+
+  @override
+  List<Object?> get props => [message];
+
 }
