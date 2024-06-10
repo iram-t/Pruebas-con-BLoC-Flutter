@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prueba_cubit/domain/repository/poke_repository.dart';
 import 'package:prueba_cubit/observer.dart';
 import 'package:prueba_cubit/presentation/splash/view/splash_page.dart';
 
@@ -14,15 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const SplashPage()
+    return RepositoryProvider(
+      create: (context) => PokeRepository(),
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          home: const SplashPage()),
     );
   }
 }
-
-
